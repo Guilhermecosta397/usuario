@@ -1,10 +1,7 @@
 package com.guilherme.usuario.infra.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -17,15 +14,18 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name="usuario")
+@Builder
 public class UsuarioConta implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column (name= "nome", length = 100)
+    @Column (name= "Nome", length = 100)
     private String nome;
+
     @Column (name= "Email", length = 100)
     private String email;
+
     @Column (name= "Senha")
     private String senha;
 
